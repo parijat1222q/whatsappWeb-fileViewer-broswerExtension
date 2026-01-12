@@ -76,6 +76,23 @@ class CsvRenderer {
         wrapper.appendChild(table);
         return wrapper;
     }
+
+    static createDownloadBtn(doc, csvText, filename) {
+        const btn = doc.createElement('button');
+        btn.textContent = 'Download CSV';
+        btn.style.cssText = 'display: block; margin: 10px 0 20px; padding: 10px 15px; background-color: #25D366; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-family: sans-serif;';
+        
+        btn.onclick = () => {
+            const blob = new Blob([csvText], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = doc.createElement('a');
+            link.href = url;
+            link.download = filename || 'download.csv';
+            link.click();
+            URL.revokeObjectURL(url);
+        };
+        return btn;
+    }
 }
 
 class CsvTools {
@@ -95,6 +112,8 @@ class CsvTools {
             const header = doc.createElement('h2');
             header.textContent = filename || 'Unknown File';
             doc.body.appendChild(header);
+
+            doc.body.appendChild(CsvRenderer.createDownloadBtn(doc, csvText, filename));
 
             const { data, maxCols } = CsvParser.parse(csvText);
             doc.body.appendChild(CsvRenderer.render(doc, data, maxCols));
