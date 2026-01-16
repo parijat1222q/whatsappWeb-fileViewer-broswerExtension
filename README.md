@@ -36,13 +36,13 @@ A privacy-focused Chrome Extension that enhances WhatsApp Web by allowing you to
 │   ├── xlsx.full.min.js # SheetJS library for Excel parsing
 │   └── shim.js          # Compatibility fix for WhatsApp module system
 ├── utils/
-│   ├── modal.js        # UI Component: The overlay window
-│   ├── csvTools.js     # Logic: CSV parsing, table rendering, stats
-│   ├── excelTools.js   # Logic: Excel -> CSV conversion
-│   ├── chartTools.js   # Logic: Chart generation
-│   ├── textTools.js    # Logic: Code & JSON viewing
-│   └── imageTools.js   # Logic: Image viewing with zoom
-└── test.html           # Local test bench for development
+    ├── modal.js        # UI Component: The overlay window
+    ├── csvTools.js     # Logic: CSV parsing, table rendering, stats
+    ├── excelTools.js   # Logic: Excel -> CSV conversion
+    ├── chartTools.js   # Logic: Chart generation
+    ├── textTools.js    # Logic: Code & JSON viewing
+    └── imageTools.js   # Logic: Image viewing with zoom
+
 ```
 
 ## 🔧 Technical Details
