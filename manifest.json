@@ -3,12 +3,28 @@
   "name": "WhatsApp Web File Viewer",
   "version": "1.0",
   "description": "View PDFs, CSVs directly in WhatsApp Web without downloading them.",
-  "permissions": [],
-  "host_permissions": ["https://web.whatsapp.com/*"],
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://web.whatsapp.com/*"
+  ],
   "content_scripts": [
     {
-      "matches": ["https://web.whatsapp.com/*"],
-      "js": ["utils/csvTools.js", "fileViewer.js"],
+      "matches": [
+        "https://web.whatsapp.com/*"
+      ],
+      "js": [
+        "lib/shim.js",
+        "lib/xlsx.full.min.js",
+        "utils/textTools.js",
+        "utils/imageTools.js",
+        "utils/chartTools.js",
+        "utils/excelTools.js",
+        "utils/modal.js",
+        "utils/csvTools.js",
+        "fileViewer.js"
+      ],
       "run_at": "document_start",
       "world": "MAIN"
     }
